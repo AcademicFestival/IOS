@@ -10,6 +10,13 @@
 		E4A63E212C215A2D00638573 /* iOSDropDown in Frameworks */ = {isa = PBXBuildFile; productRef = E4A63E202C215A2D00638573 /* iOSDropDown */; };
 		E4A63E232C215ACB00638573 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E222C215ACB00638573 /* Color + Extension.swift */; };
 		E4A63E252C215AD900638573 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A63E242C215AD900638573 /* Color.xcassets */; };
+		E4A63E2B2C2167C400638573 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E2A2C2167C400638573 /* UploadViewController.swift */; };
+		E4A63E2D2C216A0800638573 /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E2C2C216A0800638573 /* UploadViewModel.swift */; };
+		E4A63E2F2C2173BA00638573 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E2E2C2173BA00638573 /* Network.swift */; };
+		E4A63E312C21740900638573 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E302C21740900638573 /* URL.swift */; };
+		E4A63E332C21764900638573 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E322C21764900638573 /* NetworkProvider.swift */; };
+		E4A63E362C21782E00638573 /* AiNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E352C21782E00638573 /* AiNetwork.swift */; };
+		E4A63E392C21788800638573 /* AiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E382C21788800638573 /* AiResponseModel.swift */; };
 		E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AC2C20121E009518B4 /* AppDelegate.swift */; };
 		E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */; };
 		E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66B02C20121E009518B4 /* ViewController.swift */; };
@@ -28,6 +35,13 @@
 /* Begin PBXFileReference section */
 		E4A63E222C215ACB00638573 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		E4A63E242C215AD900638573 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		E4A63E2A2C2167C400638573 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		E4A63E2C2C216A0800638573 /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
+		E4A63E2E2C2173BA00638573 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E4A63E302C21740900638573 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		E4A63E322C21764900638573 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		E4A63E352C21782E00638573 /* AiNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiNetwork.swift; sourceTree = "<group>"; };
+		E4A63E382C21788800638573 /* AiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiResponseModel.swift; sourceTree = "<group>"; };
 		E4FD66A92C20121E009518B4 /* RightNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD66AC2C20121E009518B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +71,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4A63E292C2167B600638573 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E2A2C2167C400638573 /* UploadViewController.swift */,
+				E4A63E2C2C216A0800638573 /* UploadViewModel.swift */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		E4A63E342C21781C00638573 /* AiNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E352C21782E00638573 /* AiNetwork.swift */,
+			);
+			name = AiNetwork;
+			sourceTree = "<group>";
+		};
+		E4A63E372C21788000638573 /* Ai */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E382C21788800638573 /* AiResponseModel.swift */,
+			);
+			path = Ai;
+			sourceTree = "<group>";
+		};
 		E4FD66A02C20121E009518B4 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +147,7 @@
 		E4FD66C22C201234009518B4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E372C21788000638573 /* Ai */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -115,6 +155,10 @@
 		E4FD66C32C201237009518B4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E302C21740900638573 /* URL.swift */,
+				E4A63E2E2C2173BA00638573 /* Network.swift */,
+				E4A63E322C21764900638573 /* NetworkProvider.swift */,
+				E4A63E342C21781C00638573 /* AiNetwork */,
 				E4FD66DA2C201C70009518B4 /* flaskTest.swift */,
 			);
 			path = Network;
@@ -123,6 +167,7 @@
 		E4FD66C42C20123B009518B4 /* Feat */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E292C2167B600638573 /* Upload */,
 				E4FD66B02C20121E009518B4 /* ViewController.swift */,
 			);
 			path = Feat;
@@ -227,11 +272,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A63E2D2C216A0800638573 /* UploadViewModel.swift in Sources */,
 				E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */,
+				E4A63E312C21740900638573 /* URL.swift in Sources */,
+				E4A63E2F2C2173BA00638573 /* Network.swift in Sources */,
+				E4A63E362C21782E00638573 /* AiNetwork.swift in Sources */,
+				E4A63E2B2C2167C400638573 /* UploadViewController.swift in Sources */,
 				E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */,
 				E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */,
 				E4FD66DB2C201C70009518B4 /* flaskTest.swift in Sources */,
 				E4A63E232C215ACB00638573 /* Color + Extension.swift in Sources */,
+				E4A63E392C21788800638573 /* AiResponseModel.swift in Sources */,
+				E4A63E332C21764900638573 /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
