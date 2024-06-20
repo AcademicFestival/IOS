@@ -133,12 +133,6 @@ private extension UploadViewController {
     @objc func uploadBtnTapped() {
         print("uploadBtnTapped")
         self.uploadViewModel.uploadTrigger.onNext(())
-//        DispatchQueue.main.async {
-//            self.loadingIndicator.stopAnimating()
-//            self.loadingIndicator.type = .circleStrokeSpin
-//            self.loadingIndicator.startAnimating()
-//            self.uploadViewModel.uploadTrigger.onNext(())
-//        }
     }
     @objc func nextBtnTapped() {
         print("nextBtnTapped")
