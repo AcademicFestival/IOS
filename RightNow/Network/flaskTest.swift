@@ -28,7 +28,6 @@ class flaskTest {
                         completion(.failure(AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: (response.response?.statusCode ?? -1)))))
                         return
                     }
-                    
                     print("Received file name: \(filename)")
                     
                     // 파일을 저장할 경로 설정
