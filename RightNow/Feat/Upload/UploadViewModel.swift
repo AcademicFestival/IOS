@@ -21,7 +21,11 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
     
     //파일 업로드
     let uploadTrigger = PublishSubject<Void>()
-    let uploadResult : PublishSubject<Void> = PublishSubject()
+    let uploadResult : PublishSubject<String> = PublishSubject()
+    
+    //서버로 파일 전송
+    let serverToFileTrigger = PublishSubject<Void>()
+    let serverToFileResult : PublishSubject<Void> = PublishSubject()
     
     private var selectedFileURL : URL? //선택된 파일 URL
     
@@ -69,7 +73,13 @@ extension UploadViewModel {
                 do {
                     let fileData = try Data(contentsOf: selectedFileURL)
                     // 파일 데이터 활용
-                    
+                    // fileData => UI upadte
+                    self.uploadResult.onNext(decodedString)
+                    //Upload To Server(Document)
+                    self.serverToFileTrigger.subscribe(onNext: {[weak self] _ in
+                        guard let self = self else {return}
+                        print(fileData)
+                    }).disposed(by: disposeBag)
                     print("File data loaded successfully.")
                 } catch {
                     self.showMessage(title: "데이터 업로드 실패", message: "데이터를 가져올 수 없습니다.\n다시 시도해 보세요")
