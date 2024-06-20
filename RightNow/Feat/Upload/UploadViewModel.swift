@@ -49,14 +49,6 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
     }
 }
 extension UploadViewModel {
-//    private func uploadButtonTapped() {
-//        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType(filenameExtension: "docx")!])
-//        documentPicker.delegate = self
-//        documentPicker.allowsMultipleSelection = false
-//
-//        let uploadVC = UploadViewController()
-//        uploadVC.present(documentPicker, animated: true)
-//    }
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         if let selectedFileURL = urls.first {
             self.selectedFileURL = selectedFileURL
