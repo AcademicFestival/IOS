@@ -133,6 +133,10 @@ private extension UploadViewController {
     @objc func uploadBtnTapped() {
         print("uploadBtnTapped")
         self.uploadViewModel.uploadTrigger.onNext(())
+        self.uploadViewModel.uploadResult.subscribe(onNext: {[weak self] fileLabel in
+            guard let self = self else {return}
+            self.documentLabel.text = fileLabel
+        }).disposed(by: disposeBag)
     }
     @objc func nextBtnTapped() {
         print("nextBtnTapped")
