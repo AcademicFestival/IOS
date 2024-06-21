@@ -20,7 +20,7 @@ final class FormViewModel {
     
     // Outputs
     let createFormResult = PublishSubject<[String]>()
-    let getFormResult = PublishSubject<[String: Any]>()
+    let getFormResult = PublishSubject<[String]>()
     
     init() {
         createFormTrigger
@@ -32,7 +32,7 @@ final class FormViewModel {
             .disposed(by: disposeBag)
         
         getFormTrigger
-            .flatMapLatest { [weak self] formId -> Observable<[String: Any]> in
+            .flatMapLatest { [weak self] formId -> Observable<[String]> in
                 guard let self = self else { return Observable.empty() }
                 return self.getForm(formId: formId)
             }
@@ -67,16 +67,20 @@ final class FormViewModel {
         }
     }
     
-    private func getForm(formId: String) -> Observable<[String: Any]> {
+    private func getForm(formId: String) -> Observable<[String]> {
         return Observable.create { observer in
-            let fullPath = "https://api.typeform.com/forms/\(formId)"
+            let fullPath = "https://api.typeform.com/forms/\(formId)/responses"
             AF.request(fullPath, method: .get, headers: ["Content-Type":"application/json", "Authorization":"Bearer \(self.apiKey)"])
                 .validate()
-                .response{ response in
+                .responseDecodable(of: GetFormResponseModel.self){ response in
                     print(response.debugDescription)
                     switch response.result {
-                    case .success(_):
-                        observer.onCompleted()
+                    case .success(let data):
+                        let answer = data.items.compactMap({ $0.answers })
+                        if let text = answer.first?.compactMap({ $0.text }){
+                            observer.onNext(text)
+                            observer.onCompleted()
+                        }
                     case .failure(let error):
                         observer.onError(error)
                     }

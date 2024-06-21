@@ -55,6 +55,7 @@ final class WebViewController : UIViewController, WKNavigationDelegate{
 //MARK: - UI Navigation
 private extension WebViewController {
     private func setNavigation() {
+        self.title = ""
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationItem.rightBarButtonItem = completeBtn
@@ -99,7 +100,7 @@ private extension WebViewController {
     private func showAlert(title: String, message: String) {
         let Alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let Ok = UIAlertAction(title: "확인", style: .default){ _ in
-//            self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+            self.navigationController?.pushViewController(CreateDocumentViewController(formId: self.formData[0]), animated: true)
         }
         let Cancel = UIAlertAction(title: "취소", style: .destructive)
         Alert.addAction(Ok)
