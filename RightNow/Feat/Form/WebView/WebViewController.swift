@@ -94,7 +94,7 @@ private extension WebViewController {
 //MARK: - UI Action
 private extension WebViewController {
     @objc private func completeBtnTapped() {
-        showAlert(title: "답변 확인", message: "질문에 대한 모든 답변을 완료하셨나요?\n입력하신 답변을 기반으로 문서생성이 됩니다.")
+        showAlert(title: "답변 확인", message: "질문에 대한 모든 답변을 완료하셨나요?\n입력하신 답변을 기반으로 문서가 생성됩니다.")
     }
     private func showAlert(title: String, message: String) {
         let Alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
