@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let VC = FormViewController(formViewModel: FormViewModel())
+        let VC = FormViewController()
         let naviVC = UINavigationController(rootViewController: VC)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = naviVC
