@@ -14,8 +14,6 @@ import NVActivityIndicatorView
 
 final class WebViewController : UIViewController, WKNavigationDelegate{
     private let disposeBag = DisposeBag()
-    private let formViewModel = FormViewModel()
-    
     let formData : [String]
     init(formData: [String]) {
         self.formData = formData
