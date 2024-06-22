@@ -16,7 +16,7 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
     private var aiNetwork : AiNetwork
     
     //Ai
-    let aiTrigger = PublishSubject<Void>()
+    let aiTrigger = PublishSubject<String>()
     let aiResult : PublishSubject<[String]> = PublishSubject()
     
     //파일 업로드
@@ -24,8 +24,8 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
     let uploadResult : PublishSubject<String> = PublishSubject()
     
     //서버로 파일 전송
-    let serverToFileTrigger = PublishSubject<Void>()
-    let serverToFileResult : PublishSubject<Void> = PublishSubject()
+    let serverToFileTrigger = PublishSubject<Data>()
+    let serverToFileResult : PublishSubject<String> = PublishSubject()
     
     private var selectedFileURL : URL? //선택된 파일 URL
     
@@ -35,9 +35,9 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
         super.init()
         
         //Ai
-        aiTrigger.subscribe(onNext: { [weak self] _ in
+        aiTrigger.subscribe(onNext: { [weak self] question in
             guard let self = self else {return}
-            self.aiNetwork.postAiNetwork().subscribe(onNext: {[weak self] result in
+            self.aiNetwork.postAiNetwork(params: question).subscribe(onNext: {[weak self] result in
                 guard let self = self else {return}
                 let message = result.choices.compactMap({ $0.message })
                 let content = message.compactMap { $0.content }
@@ -50,13 +50,19 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
             guard let self = self else {return}
             self.uploadButtonTapped()
         }).disposed(by: disposeBag)
+        
+        //Upload To Server(Document)
+        serverToFileTrigger.flatMapLatest { fileData in
+            return UploadFlask.uploadFlask(fileData: fileData)
+        }
+        .bind(to: serverToFileResult)
+        .disposed(by: self.disposeBag)
     }
 }
 extension UploadViewModel {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         if let selectedFileURL = urls.first {
             self.selectedFileURL = selectedFileURL
-            print("Selected file URL: \(selectedFileURL)")
             
             //파일 접근 권한 요청
             let isAccessing = selectedFileURL.startAccessingSecurityScopedResource()
@@ -75,11 +81,7 @@ extension UploadViewModel {
                     // 파일 데이터 활용
                     // fileData => UI upadte
                     self.uploadResult.onNext(decodedString)
-                    //Upload To Server(Document)
-                    self.serverToFileTrigger.subscribe(onNext: {[weak self] _ in
-                        guard let self = self else {return}
-                        print(fileData)
-                    }).disposed(by: disposeBag)
+                    self.serverToFileTrigger.onNext(fileData)
                     print("File data loaded successfully.")
                 } catch {
                     self.showMessage(title: "데이터 업로드 실패", message: "데이터를 가져올 수 없습니다.\n다시 시도해 보세요")

@@ -132,7 +132,7 @@ final class RegisterViewController3 : UIViewController{
         let btn = UIButton()
         btn.isEnabled = false
         btn.backgroundColor = .gray
-        btn.setTitle("다음", for: .normal)
+        btn.setTitle("회원가입", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         btn.addTarget(self, action: #selector(nextBtnTapped), for: .touchUpInside)
@@ -180,7 +180,7 @@ private extension RegisterViewController3 {
         self.view.addSubview(nextBtn)
         
         agreeTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(22)
             make.top.equalTo(144)
         }
@@ -212,7 +212,7 @@ private extension RegisterViewController3 {
             make.height.equalTo(22)
         }
         essentialView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(agreeTitle.snp.bottom).offset(10)
             make.height.equalTo(123)
         }
@@ -239,12 +239,12 @@ private extension RegisterViewController3 {
             make.height.equalTo(22)
         }
         selectiveView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(essentialView.snp.bottom).offset(20)
             make.height.equalTo(91)
         }
         nextBtn.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalToSuperview().inset(30)
             make.height.equalTo(50)
         }

@@ -84,8 +84,6 @@ final class RegisterViewController2 : UIViewController{
         let btn = UIButton()
         btn.isEnabled = false
         btn.backgroundColor = .gray
-        btn.layer.cornerRadius = 15
-        btn.layer.masksToBounds = true
         btn.setTitle("다음", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -129,12 +127,12 @@ private extension RegisterViewController2 {
         self.view.addSubview(nextBtn)
         
         birthTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(22)
             make.top.equalTo(144)
         }
         birthView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(birthTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -144,12 +142,12 @@ private extension RegisterViewController2 {
             make.height.equalTo(25)
         }
         nameTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(birthText.snp.bottom).offset(50)
             make.height.equalTo(22)
         }
         nameView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(nameTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -159,12 +157,12 @@ private extension RegisterViewController2 {
             make.height.equalTo(25)
         }
         phoneTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(nameView.snp.bottom).offset(50)
             make.height.equalTo(22)
         }
         phoneView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(phoneTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -174,7 +172,7 @@ private extension RegisterViewController2 {
             make.height.equalTo(25)
         }
         nextBtn.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalToSuperview().inset(30)
             make.height.equalTo(50)
         }

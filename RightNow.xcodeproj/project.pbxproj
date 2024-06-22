@@ -35,6 +35,11 @@
 		E4A63E7D2C269F6100638573 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */; };
 		E4A63E7E2C269F6100638573 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */; };
 		E4A63E7F2C269F6100638573 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */; };
+		E4A63E862C26AF6700638573 /* UploadFlask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E852C26AF6700638573 /* UploadFlask.swift */; };
+		E4A63E892C26C84500638573 /* DocumentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E882C26C84500638573 /* DocumentResponseModel.swift */; };
+		E4A63E8B2C26CAE200638573 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E8A2C26CAE200638573 /* String + Extension.swift */; };
+		E4A63E8E2C270D3500638573 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E4A63E8D2C270D3500638573 /* Kingfisher */; };
+		E4A63E902C270D5D00638573 /* confetti.gif in Resources */ = {isa = PBXBuildFile; fileRef = E4A63E8F2C270D5D00638573 /* confetti.gif */; };
 		E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AC2C20121E009518B4 /* AppDelegate.swift */; };
 		E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */; };
 		E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66B02C20121E009518B4 /* ViewController.swift */; };
@@ -47,7 +52,7 @@
 		E4FD66D42C20146A009518B4 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = E4FD66D32C20146A009518B4 /* NVActivityIndicatorView */; };
 		E4FD66D62C20146A009518B4 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = E4FD66D52C20146A009518B4 /* NVActivityIndicatorViewExtended */; };
 		E4FD66D92C201477009518B4 /* SCLAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = E4FD66D82C201477009518B4 /* SCLAlertView */; };
-		E4FD66DB2C201C70009518B4 /* flaskTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66DA2C201C70009518B4 /* flaskTest.swift */; };
+		E4FD66DB2C201C70009518B4 /* JsonTodocx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66DA2C201C70009518B4 /* JsonTodocx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +78,10 @@
 		E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
 		E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
 		E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
+		E4A63E852C26AF6700638573 /* UploadFlask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFlask.swift; sourceTree = "<group>"; };
+		E4A63E882C26C84500638573 /* DocumentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponseModel.swift; sourceTree = "<group>"; };
+		E4A63E8A2C26CAE200638573 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		E4A63E8F2C270D5D00638573 /* confetti.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = confetti.gif; sourceTree = "<group>"; };
 		E4FD66A92C20121E009518B4 /* RightNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD66AC2C20121E009518B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +89,7 @@
 		E4FD66B52C20121F009518B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4FD66B82C20121F009518B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4FD66BA2C20121F009518B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4FD66DA2C201C70009518B4 /* flaskTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flaskTest.swift; sourceTree = "<group>"; };
+		E4FD66DA2C201C70009518B4 /* JsonTodocx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTodocx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +99,7 @@
 			files = (
 				E4FD66CE2C20143A009518B4 /* RxAlamofire in Frameworks */,
 				E4A63E512C242ADF00638573 /* GTMAppAuth in Frameworks */,
+				E4A63E8E2C270D3500638573 /* Kingfisher in Frameworks */,
 				E4FD66D42C20146A009518B4 /* NVActivityIndicatorView in Frameworks */,
 				E4A63E562C24545400638573 /* GTMSessionFetcherCore in Frameworks */,
 				E4FD66C82C201419009518B4 /* SnapKit in Frameworks */,
@@ -197,12 +207,36 @@
 		E4A63E752C269E8B00638573 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E782C269EA100638573 /* RegisterViewModel.swift */,
+				E4A63E802C26A8BC00638573 /* VC */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E4A63E802C26A8BC00638573 /* VC */ = {
+			isa = PBXGroup;
+			children = (
 				E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */,
 				E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */,
 				E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */,
-				E4A63E782C269EA100638573 /* RegisterViewModel.swift */,
 			);
-			path = Register;
+			path = VC;
+			sourceTree = "<group>";
+		};
+		E4A63E842C26AF4200638573 /* Flask */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E852C26AF6700638573 /* UploadFlask.swift */,
+			);
+			name = Flask;
+			sourceTree = "<group>";
+		};
+		E4A63E872C26C83A00638573 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E882C26C84500638573 /* DocumentResponseModel.swift */,
+			);
+			path = Document;
 			sourceTree = "<group>";
 		};
 		E4FD66A02C20121E009518B4 = {
@@ -237,6 +271,7 @@
 		E4FD66C02C20122B009518B4 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E8F2C270D5D00638573 /* confetti.gif */,
 				E4FD66B52C20121F009518B4 /* Assets.xcassets */,
 				E4A63E242C215AD900638573 /* Color.xcassets */,
 				E4FD66B72C20121F009518B4 /* LaunchScreen.storyboard */,
@@ -249,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A63E222C215ACB00638573 /* Color + Extension.swift */,
+				E4A63E8A2C26CAE200638573 /* String + Extension.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -256,6 +292,7 @@
 		E4FD66C22C201234009518B4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E872C26C83A00638573 /* Document */,
 				E4A63E5B2C2455F200638573 /* Form */,
 				E4A63E372C21788000638573 /* Ai */,
 			);
@@ -268,8 +305,9 @@
 				E4A63E302C21740900638573 /* URL.swift */,
 				E4A63E2E2C2173BA00638573 /* Network.swift */,
 				E4A63E322C21764900638573 /* NetworkProvider.swift */,
+				E4A63E842C26AF4200638573 /* Flask */,
 				E4A63E342C21781C00638573 /* AiNetwork */,
-				E4FD66DA2C201C70009518B4 /* flaskTest.swift */,
+				E4FD66DA2C201C70009518B4 /* JsonTodocx.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -325,6 +363,7 @@
 				E4A63E552C24545400638573 /* GTMSessionFetcherCore */,
 				E4A63E572C24545400638573 /* GTMSessionFetcherFull */,
 				E4A63E592C24545400638573 /* GTMSessionFetcherLogView */,
+				E4A63E8D2C270D3500638573 /* Kingfisher */,
 			);
 			productName = RightNow;
 			productReference = E4FD66A92C20121E009518B4 /* RightNow.app */;
@@ -364,6 +403,7 @@
 				E4A63E1F2C215A2D00638573 /* XCRemoteSwiftPackageReference "iOSDropDown" */,
 				E4A63E4F2C242ADF00638573 /* XCRemoteSwiftPackageReference "GTMAppAuth" */,
 				E4A63E522C24545400638573 /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */,
+				E4A63E8C2C270D3500638573 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E4FD66AA2C20121E009518B4 /* Products */;
 			projectDirPath = "";
@@ -379,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A63E902C270D5D00638573 /* confetti.gif in Resources */,
 				E4FD66B92C20121F009518B4 /* LaunchScreen.storyboard in Resources */,
 				E4FD66B62C20121F009518B4 /* Assets.xcassets in Resources */,
 				E4A63E252C215AD900638573 /* Color.xcassets in Resources */,
@@ -394,6 +435,7 @@
 			files = (
 				E4A63E2D2C216A0800638573 /* UploadViewModel.swift in Sources */,
 				E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */,
+				E4A63E8B2C26CAE200638573 /* String + Extension.swift in Sources */,
 				E4A63E312C21740900638573 /* URL.swift in Sources */,
 				E4A63E2F2C2173BA00638573 /* Network.swift in Sources */,
 				E4A63E7F2C269F6100638573 /* RegisterViewController3.swift in Sources */,
@@ -404,15 +446,17 @@
 				E4A63E712C269E6E00638573 /* LoginViewController.swift in Sources */,
 				E4A63E2B2C2167C400638573 /* UploadViewController.swift in Sources */,
 				E4A63E7E2C269F6100638573 /* RegisterViewController2.swift in Sources */,
+				E4A63E862C26AF6700638573 /* UploadFlask.swift in Sources */,
 				E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */,
 				E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */,
-				E4FD66DB2C201C70009518B4 /* flaskTest.swift in Sources */,
+				E4FD66DB2C201C70009518B4 /* JsonTodocx.swift in Sources */,
 				E4A63E232C215ACB00638573 /* Color + Extension.swift in Sources */,
 				E4A63E392C21788800638573 /* AiResponseModel.swift in Sources */,
 				E4A63E332C21764900638573 /* NetworkProvider.swift in Sources */,
 				E4A63E6A2C25486E00638573 /* FormViewModel.swift in Sources */,
 				E4A63E432C2416E400638573 /* FormViewController.swift in Sources */,
 				E4A63E622C2460F100638573 /* WebViewController.swift in Sources */,
+				E4A63E892C26C84500638573 /* DocumentResponseModel.swift in Sources */,
 				E4A63E6E2C254DA400638573 /* CreateDocumentViewModel.swift in Sources */,
 				E4A63E7D2C269F6100638573 /* RegisterViewController1.swift in Sources */,
 				E4A63E732C269E7B00638573 /* LoginViewModel.swift in Sources */,
@@ -652,6 +696,14 @@
 				kind = branch;
 			};
 		};
+		E4A63E8C2C270D3500638573 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		E4FD66C62C201419009518B4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -732,6 +784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4A63E522C24545400638573 /* XCRemoteSwiftPackageReference "gtm-session-fetcher" */;
 			productName = GTMSessionFetcherLogView;
+		};
+		E4A63E8D2C270D3500638573 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4A63E8C2C270D3500638573 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		E4FD66C72C201419009518B4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

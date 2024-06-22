@@ -42,13 +42,11 @@ final class UploadViewController : UIViewController {
     }()
     private lazy var nextBtn : UIButton = {
         let btn = UIButton()
+        btn.isEnabled = false
         btn.clipsToBounds = true
-        btn.layer.cornerRadius = 10
-        btn.layer.masksToBounds = true
+        btn.backgroundColor = .gray
         btn.setTitle("다음", for: .normal)
-        btn.backgroundColor = .pointColor
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .heavy)
-        btn.addTarget(self, action: #selector(nextBtnTapped), for: .touchUpInside)
         return btn
     }()
     private let loadingIndicator : NVActivityIndicatorView = {
@@ -72,6 +70,7 @@ final class UploadViewController : UIViewController {
 //MARK: - UI Navigation
 private extension UploadViewController {
     private func setNavigation() {
+        self.title = ""
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .black
     }
@@ -114,9 +113,25 @@ private extension UploadViewController {
 //MARK: - Binding
 private extension UploadViewController {
     private func setBinding() {
-//        uploadViewModel.aiTrigger.onNext(())
-        
-        BindView()
+        uploadViewModel.serverToFileResult.subscribe(onNext: {[weak self] text in
+            guard let self = self else {return}
+            self.uploadViewModel.aiTrigger.onNext((text))
+        }).disposed(by: disposeBag)
+        uploadViewModel.aiResult.subscribe(onNext: {[weak self] question in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.nextBtn.isEnabled = true
+                self.nextBtn.backgroundColor = .pointColor
+                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.type = .ballDoubleBounce
+                self.loadingIndicator.startAnimating()
+                self.nextBtn.rx.tap.subscribe{ _ in
+                    if let question = question.first {
+                        self.navigationController?.pushViewController(FormViewController(question: question), animated: true)
+                    }
+                }.disposed(by: self.disposeBag)
+            }
+        }).disposed(by: disposeBag)
     }
     private func BindView() {
         NotificationCenter.default.addObserver(self, selector: #selector(presentDocumentPicker), name: .init("presentDocumentPicker"), object: nil)
@@ -135,11 +150,13 @@ private extension UploadViewController {
         self.uploadViewModel.uploadTrigger.onNext(())
         self.uploadViewModel.uploadResult.subscribe(onNext: {[weak self] fileLabel in
             guard let self = self else {return}
-            self.documentLabel.text = fileLabel
+            DispatchQueue.main.async {
+                self.documentLabel.text = fileLabel
+                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.type = .ballRotateChase
+                self.loadingIndicator.startAnimating()
+            }
         }).disposed(by: disposeBag)
-    }
-    @objc func nextBtnTapped() {
-        print("nextBtnTapped")
     }
     private func showMessage(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

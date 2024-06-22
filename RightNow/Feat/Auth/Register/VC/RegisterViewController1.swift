@@ -15,9 +15,8 @@ final class RegisterViewController1 : UIViewController{
     private let disposeBag = DisposeBag()
     private let registerViewModel = RegisterViewModel()
     private var seepassword : Bool = false
-    private var seeRepassword : Bool = false
     //MARK: - UI Components
-    //이메일
+    //아이디
     private let idTitle : UILabel = {
         let label = UILabel()
         label.text = "아이디"
@@ -25,7 +24,7 @@ final class RegisterViewController1 : UIViewController{
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
-    //이메일 입력
+    //아이디 입력
     private let idView : UIView = {
         let view = UIView()
         view.layer.borderWidth = 0.5
@@ -57,7 +56,7 @@ final class RegisterViewController1 : UIViewController{
     private let passwordText : UITextField = {
         let text = UITextField()
         text.textColor = .black
-        text.isSecureTextEntry = true //비밀번호 가리기
+        text.isSecureTextEntry = true //비밀번호 가리기(암호화)
         text.placeholder = "비밀번호를 입력해주세요"
         text.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return text
@@ -96,8 +95,6 @@ final class RegisterViewController1 : UIViewController{
         let btn = UIButton()
         btn.isEnabled = false
         btn.backgroundColor = .gray
-        btn.layer.cornerRadius = 15
-        btn.layer.masksToBounds = true
         btn.setTitle("다음", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -125,7 +122,6 @@ private extension RegisterViewController1 {
         self.navigationController?.navigationBar.tintColor = .black
     }
 }
-
 //MARK: - UI Layout
 private extension RegisterViewController1 {
     private func setLayout() {
@@ -142,12 +138,12 @@ private extension RegisterViewController1 {
         self.view.addSubview(nextBtn)
         
         idTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(22)
             make.top.equalTo(144)
         }
         idView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(idTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -157,12 +153,12 @@ private extension RegisterViewController1 {
             make.height.equalTo(25)
         }
         passwordTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(idText.snp.bottom).offset(50)
             make.height.equalTo(22)
         }
         passwordView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(passwordTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -178,12 +174,12 @@ private extension RegisterViewController1 {
             make.width.height.equalTo(20)
         }
         addressTitle.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(passwordText.snp.bottom).offset(50)
             make.height.equalTo(22)
         }
         addressView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.top.equalTo(addressTitle.snp.bottom).offset(10)
             make.height.equalTo(49)
         }
@@ -193,7 +189,7 @@ private extension RegisterViewController1 {
             make.height.equalTo(25)
         }
         nextBtn.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(18)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalToSuperview().inset(30)
             make.height.equalTo(50)
         }
@@ -247,9 +243,6 @@ extension RegisterViewController1 : UITextFieldDelegate {
             self.passwordText.isSecureTextEntry = false
             self.seepassword = false
         }
-    }
-    @objc private func seeRepasswordBtnTapped() {
-        self.addressText.isSecureTextEntry = false
     }
     @objc private func nextBtnTapped() {
         self.navigationController?.pushViewController(RegisterViewController2(), animated: true)

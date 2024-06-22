@@ -30,17 +30,17 @@ class ViewController: UIViewController {
             "day": "07"
         ]
         
-        flaskTest.generateApplicationForm(copyrightInfo: copyrightInfo, today: today) { result in
-            switch result {
-            case .success(let fileURL):
-                print("Document generated successfully: \(fileURL)")
-                DispatchQueue.main.async {
-                    self.showPDF(file: fileURL)
-                }
-            case .failure(let error):
-                print("Failed to generate document: \(error.localizedDescription)")
-            }
-        }
+//        JsonTodocx.generateApplicationForm(copyrightInfo: copyrightInfo, today: today) { result in
+//            switch result {
+//            case .success(let fileURL):
+//                print("Document generated successfully: \(fileURL)")
+//                DispatchQueue.main.async {
+//                    self.showPDF(file: fileURL)
+//                }
+//            case .failure(let error):
+//                print("Failed to generate document: \(error.localizedDescription)")
+//            }
+//        }
     }
     
     func showPDF(file: URL) {
