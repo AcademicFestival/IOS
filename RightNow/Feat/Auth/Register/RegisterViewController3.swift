@@ -113,7 +113,7 @@ final class RegisterViewController3 : UIViewController{
         view.backgroundColor = .lightGray
         return view
     }()
-    //이벤트 정보 수신 동의
+    //이벤트 정보 수신 동의 -> 다른 동의 대체
     private let receptionBtn : UIButton = {
         let btn = UIButton()
         var configuration = UIButton.Configuration.borderless()
