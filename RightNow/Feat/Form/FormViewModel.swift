@@ -13,7 +13,6 @@ import Foundation
 final class FormViewModel {
     private let disposeBag = DisposeBag()
     private let apiKey = ""
-    
     // Inputs
     let createFormTrigger = PublishSubject<Void>()
     let getFormTrigger = PublishSubject<String>()
