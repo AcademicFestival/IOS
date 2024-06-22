@@ -29,6 +29,12 @@
 		E4A63E6A2C25486E00638573 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E692C25486E00638573 /* FormViewModel.swift */; };
 		E4A63E6C2C254D9B00638573 /* CreateDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E6B2C254D9B00638573 /* CreateDocumentViewController.swift */; };
 		E4A63E6E2C254DA400638573 /* CreateDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E6D2C254DA400638573 /* CreateDocumentViewModel.swift */; };
+		E4A63E712C269E6E00638573 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E702C269E6E00638573 /* LoginViewController.swift */; };
+		E4A63E732C269E7B00638573 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E722C269E7B00638573 /* LoginViewModel.swift */; };
+		E4A63E792C269EA100638573 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E782C269EA100638573 /* RegisterViewModel.swift */; };
+		E4A63E7D2C269F6100638573 /* RegisterViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */; };
+		E4A63E7E2C269F6100638573 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */; };
+		E4A63E7F2C269F6100638573 /* RegisterViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */; };
 		E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AC2C20121E009518B4 /* AppDelegate.swift */; };
 		E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */; };
 		E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66B02C20121E009518B4 /* ViewController.swift */; };
@@ -61,6 +67,12 @@
 		E4A63E692C25486E00638573 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
 		E4A63E6B2C254D9B00638573 /* CreateDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentViewController.swift; sourceTree = "<group>"; };
 		E4A63E6D2C254DA400638573 /* CreateDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentViewModel.swift; sourceTree = "<group>"; };
+		E4A63E702C269E6E00638573 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E4A63E722C269E7B00638573 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E4A63E782C269EA100638573 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController1.swift; sourceTree = "<group>"; };
+		E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController2.swift; sourceTree = "<group>"; };
+		E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController3.swift; sourceTree = "<group>"; };
 		E4FD66A92C20121E009518B4 /* RightNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD66AC2C20121E009518B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +176,35 @@
 			path = CreateDocument;
 			sourceTree = "<group>";
 		};
+		E4A63E6F2C269E5500638573 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E752C269E8B00638573 /* Register */,
+				E4A63E742C269E7E00638573 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E4A63E742C269E7E00638573 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E702C269E6E00638573 /* LoginViewController.swift */,
+				E4A63E722C269E7B00638573 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E4A63E752C269E8B00638573 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E7A2C269F6100638573 /* RegisterViewController1.swift */,
+				E4A63E7B2C269F6100638573 /* RegisterViewController2.swift */,
+				E4A63E7C2C269F6100638573 /* RegisterViewController3.swift */,
+				E4A63E782C269EA100638573 /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		E4FD66A02C20121E009518B4 = {
 			isa = PBXGroup;
 			children = (
@@ -236,10 +277,11 @@
 		E4FD66C42C20123B009518B4 /* Feat */ = {
 			isa = PBXGroup;
 			children = (
+				E4FD66B02C20121E009518B4 /* ViewController.swift */,
+				E4A63E6F2C269E5500638573 /* Auth */,
 				E4A63E662C25469D00638573 /* CreateDocument */,
 				E4A63E412C2416D400638573 /* Form */,
 				E4A63E292C2167B600638573 /* Upload */,
-				E4FD66B02C20121E009518B4 /* ViewController.swift */,
 			);
 			path = Feat;
 			sourceTree = "<group>";
@@ -354,11 +396,14 @@
 				E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */,
 				E4A63E312C21740900638573 /* URL.swift in Sources */,
 				E4A63E2F2C2173BA00638573 /* Network.swift in Sources */,
+				E4A63E7F2C269F6100638573 /* RegisterViewController3.swift in Sources */,
 				E4A63E652C25469800638573 /* GetFormResponseModel.swift in Sources */,
 				E4A63E362C21782E00638573 /* AiNetwork.swift in Sources */,
 				E4A63E5F2C24562B00638573 /* FormResponseModel.swift in Sources */,
 				E4A63E6C2C254D9B00638573 /* CreateDocumentViewController.swift in Sources */,
+				E4A63E712C269E6E00638573 /* LoginViewController.swift in Sources */,
 				E4A63E2B2C2167C400638573 /* UploadViewController.swift in Sources */,
+				E4A63E7E2C269F6100638573 /* RegisterViewController2.swift in Sources */,
 				E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */,
 				E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */,
 				E4FD66DB2C201C70009518B4 /* flaskTest.swift in Sources */,
@@ -369,6 +414,9 @@
 				E4A63E432C2416E400638573 /* FormViewController.swift in Sources */,
 				E4A63E622C2460F100638573 /* WebViewController.swift in Sources */,
 				E4A63E6E2C254DA400638573 /* CreateDocumentViewModel.swift in Sources */,
+				E4A63E7D2C269F6100638573 /* RegisterViewController1.swift in Sources */,
+				E4A63E732C269E7B00638573 /* LoginViewModel.swift in Sources */,
+				E4A63E792C269EA100638573 /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
