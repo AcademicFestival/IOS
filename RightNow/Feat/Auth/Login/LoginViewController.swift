@@ -17,6 +17,13 @@ final class LoginViewController : UIViewController {
     
     //MARK: - UI Components
     private var seepassword : Bool = false
+    private let loginImage : UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "loginImage")
+        return view
+    }()
     //아이디
     private let idTitle : UILabel = {
         let label = UILabel()
@@ -78,7 +85,15 @@ final class LoginViewController : UIViewController {
         btn.setTitle("로그인", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-//        btn.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
+        return btn
+    }()
+    private lazy var registerBtn : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("회원가입", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        btn.addTarget(self, action: #selector(registerBtnTapped), for: .touchUpInside)
         return btn
     }()
     override func viewDidLoad() {
@@ -93,11 +108,13 @@ private extension LoginViewController {
     private func setNavigation() {
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .black
+        self.title = ""
     }
 }
 //MARK: - UI Layout
 private extension LoginViewController {
     private func setLayout() {
+        self.view.addSubview(loginImage)
         self.view.addSubview(idTitle)
         self.idView.addSubview(idText)
         self.view.addSubview(idView)
@@ -106,10 +123,15 @@ private extension LoginViewController {
         self.passwordView.addSubview(seepasswordBtn)
         self.view.addSubview(passwordView)
         self.view.addSubview(loginBtn)
-        
+        self.view.addSubview(registerBtn)
+        loginImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(self.view.frame.height / 9)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(3)
+        }
         idTitle.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
-            make.center.equalToSuperview()
+            make.center.equalToSuperview().offset(30)
             make.height.equalTo(22)
         }
         idView.snp.makeConstraints { make in
@@ -124,7 +146,7 @@ private extension LoginViewController {
         }
         passwordTitle.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
-            make.top.equalTo(idText.snp.bottom).offset(50)
+            make.top.equalTo(idText.snp.bottom).offset(30)
             make.height.equalTo(22)
         }
         passwordView.snp.makeConstraints { make in
@@ -145,18 +167,44 @@ private extension LoginViewController {
         }
         loginBtn.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
-            make.bottom.equalToSuperview().inset(30)
+            make.bottom.equalToSuperview().inset(self.view.frame.height / 7)
             make.height.equalTo(50)
+        }
+        registerBtn.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(30)
+            make.bottom.equalTo(idTitle.snp.bottom)
         }
     }
 }
 //MARK: - Binding
-private extension LoginViewController {
+extension LoginViewController : UITextFieldDelegate{
     private func setBinding() {
         BindView()
     }
     private func BindView() {
-        
+        setKeyboard()
+        idText.delegate = self
+        passwordText.delegate = self
+    }
+    private func setKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        //버튼 활성화
+        if (textField == idText) || (textField == passwordText){
+            if (idText.text?.isEmpty == false) && (passwordText.text?.isEmpty == false) {
+                loginBtn.isEnabled = true
+                loginBtn.backgroundColor = .pointColor
+            }else{
+                loginBtn.isEnabled = false
+                loginBtn.backgroundColor = .gray
+            }
+        }
     }
 }
 //MARK: - UI Action
@@ -170,5 +218,11 @@ private extension LoginViewController {
             self.passwordText.isSecureTextEntry = false
             self.seepassword = false
         }
+    }
+    @objc private func loginBtnTapped() {
+        self.navigationController?.pushViewController(MainViewController(), animated: true)
+    }
+    @objc private func registerBtnTapped() {
+        self.navigationController?.pushViewController(RegisterViewController1(), animated: true)
     }
 }

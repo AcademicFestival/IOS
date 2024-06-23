@@ -12,4 +12,7 @@ extension UIColor {
     static let pointColor : UIColor = {
         return UIColor(named: "pointColor") ?? .white
     }()
+    static let whiteGray : UIColor = {
+        return UIColor(named: "whiteGray") ?? .white
+    }()
 }

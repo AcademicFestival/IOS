@@ -11,7 +11,7 @@ import RxCocoa
 import Foundation
 import UniformTypeIdentifiers
 
-final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
+final class UploadViewModel: NSObject, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let disposeBag = DisposeBag()
     private var aiNetwork : AiNetwork
     
@@ -28,6 +28,14 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
     let serverToFileResult : PublishSubject<String> = PublishSubject()
     
     private var selectedFileURL : URL? //선택된 파일 URL
+    private var imageFileURL : URL? //이미지 URL
+    
+    //이미지
+    let imageTrigger = PublishSubject<Void>()
+    let imageResult: PublishSubject<String> = PublishSubject()
+    let imageToServerTrigger = PublishSubject<Data>()
+    let imageToServerResult: PublishSubject<String> = PublishSubject()
+    
     
     override init() {
         let provider = NetworkProvider(endpoint: endpointURL)
@@ -57,6 +65,19 @@ final class UploadViewModel: NSObject, UIDocumentPickerDelegate {
         }
         .bind(to: serverToFileResult)
         .disposed(by: self.disposeBag)
+        
+        // Image Upload
+        imageTrigger.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.uploadImageTapped()
+        }).disposed(by: disposeBag)
+        
+        imageToServerTrigger.subscribe(onNext: { [weak self] fileData in
+            guard let self = self else { return }
+            ImageFlask.uploadImage(fileData: fileData).subscribe{ result in
+                self.imageToServerResult.onNext(result)
+            }.disposed(by: self.disposeBag)
+        }).disposed(by: disposeBag)
     }
 }
 extension UploadViewModel {
@@ -100,5 +121,28 @@ extension UploadViewModel {
     }
     func uploadButtonTapped() {
         NotificationCenter.default.post(name: .init("presentDocumentPicker"), object: nil)
+    }
+}
+// MARK: - Image Upload
+extension UploadViewModel {
+    func uploadImageTapped() {
+        NotificationCenter.default.post(name: .init("presentImagePicker"), object: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let imageData = image.jpegData(compressionQuality: 0.8) {
+                // 이미지를 서버로 전송
+                print("\(imageData)")
+                self.imageToServerTrigger.onNext(imageData)
+                self.imageResult.onNext("Image uploaded successfully")
+            }
+        } else {
+            self.showMessage(title: "이미지 업로드 실패", message: "이미지를 가져올 수 없습니다.\n다시 시도해 보세요")
+        }
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        print("Image picker was cancelled")
     }
 }

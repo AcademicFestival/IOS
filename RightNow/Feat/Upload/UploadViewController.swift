@@ -13,7 +13,7 @@ import Foundation
 import UniformTypeIdentifiers
 import NVActivityIndicatorView
 
-final class UploadViewController : UIViewController {
+final class UploadViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     private let disposeBag = DisposeBag()
     private let uploadViewModel = UploadViewModel()
     //MARK: - UI Components
@@ -40,6 +40,15 @@ final class UploadViewController : UIViewController {
         btn.addTarget(self, action: #selector(uploadBtnTapped), for: .touchUpInside)
         return btn
     }()
+    private lazy var signBtn : UIButton = {
+        let btn = UIButton()
+        btn.clipsToBounds = true
+        btn.setTitle("서명 이미지 업로드 📂", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        btn.addTarget(self, action: #selector(signBtnTapped), for: .touchUpInside)
+        return btn
+    }()
     private lazy var nextBtn : UIButton = {
         let btn = UIButton()
         btn.isEnabled = false
@@ -61,10 +70,12 @@ final class UploadViewController : UIViewController {
         
         // 트리거를 구독하여 문서 선택기 present
         NotificationCenter.default.addObserver(self, selector: #selector(presentDocumentPicker), name: .init("presentDocumentPicker"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(presentImagePicker), name: .init("presentImagePicker"), object: nil)
     }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .init("presentDocumentPicker"), object: nil)
-        
+        NotificationCenter.default.removeObserver(self, name: .init("presentImagePicker"), object: nil)
     }
 }
 //MARK: - UI Navigation
@@ -81,6 +92,7 @@ private extension UploadViewController {
         self.view.addSubview(documentImage)
         self.view.addSubview(uploadBtn)
         self.view.addSubview(nextBtn)
+        self.view.addSubview(signBtn)
         self.view.addSubview(documentLabel)
         self.view.addSubview(loadingIndicator)
         
@@ -97,6 +109,10 @@ private extension UploadViewController {
             make.leading.trailing.equalToSuperview().inset(30)
             make.bottom.equalToSuperview().inset(self.view.frame.height / 9)
             make.height.equalTo(50)
+        }
+        signBtn.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(30)
+            make.top.equalToSuperview().inset(self.view.frame.height / 7)
         }
         documentLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
@@ -138,15 +154,15 @@ private extension UploadViewController {
     }
 }
 //MARK: - UI Action
-private extension UploadViewController {
+extension UploadViewController {
     @objc private func presentDocumentPicker() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType(filenameExtension: "docx")!])
         documentPicker.delegate = uploadViewModel
         documentPicker.allowsMultipleSelection = false
         present(documentPicker, animated: true)
     }
-    @objc func uploadBtnTapped() {
-        print("uploadBtnTapped")
+    @objc private func uploadBtnTapped() {
+        print("uploadBtnTapped - called()")
         self.uploadViewModel.uploadTrigger.onNext(())
         self.uploadViewModel.uploadResult.subscribe(onNext: {[weak self] fileLabel in
             guard let self = self else {return}
@@ -157,6 +173,34 @@ private extension UploadViewController {
                 self.loadingIndicator.startAnimating()
             }
         }).disposed(by: disposeBag)
+    }
+    @objc private func signBtnTapped() {
+        print("signBtnTapped - called()")
+        self.uploadViewModel.imageTrigger.onNext(())
+    }
+    @objc func presentImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let imageData = image.jpegData(compressionQuality: 0.8) {
+                // 이미지를 서버로 전송
+                print("\(imageData)")
+                self.uploadViewModel.imageToServerTrigger.onNext(imageData)
+                self.uploadViewModel.imageResult.onNext("Image uploaded successfully")
+                self.showMessage(title: "이미지 업로드 완료", message: "")
+            }
+        } else {
+            self.showMessage(title: "이미지 업로드 실패", message: "이미지를 가져올 수 없습니다.\n다시 시도해 보세요")
+        }
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        print("Image picker was cancelled")
     }
     private func showMessage(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

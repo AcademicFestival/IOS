@@ -40,6 +40,11 @@
 		E4A63E8B2C26CAE200638573 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E8A2C26CAE200638573 /* String + Extension.swift */; };
 		E4A63E8E2C270D3500638573 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E4A63E8D2C270D3500638573 /* Kingfisher */; };
 		E4A63E902C270D5D00638573 /* confetti.gif in Resources */ = {isa = PBXBuildFile; fileRef = E4A63E8F2C270D5D00638573 /* confetti.gif */; };
+		E4A63E932C27181C00638573 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E922C27181C00638573 /* MainViewController.swift */; };
+		E4A63E962C27196F00638573 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E952C27196F00638573 /* MainViewModel.swift */; };
+		E4A63E982C27197600638573 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E972C27197600638573 /* MainTableViewCell.swift */; };
+		E4A63E9B2C271E8700638573 /* MainTableResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E9A2C271E8700638573 /* MainTableResponseModel.swift */; };
+		E4A63EA02C273D3000638573 /* ImageFlask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A63E9F2C273D3000638573 /* ImageFlask.swift */; };
 		E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AC2C20121E009518B4 /* AppDelegate.swift */; };
 		E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */; };
 		E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD66B02C20121E009518B4 /* ViewController.swift */; };
@@ -82,6 +87,11 @@
 		E4A63E882C26C84500638573 /* DocumentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponseModel.swift; sourceTree = "<group>"; };
 		E4A63E8A2C26CAE200638573 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		E4A63E8F2C270D5D00638573 /* confetti.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = confetti.gif; sourceTree = "<group>"; };
+		E4A63E922C27181C00638573 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E4A63E952C27196F00638573 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E4A63E972C27197600638573 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		E4A63E9A2C271E8700638573 /* MainTableResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableResponseModel.swift; sourceTree = "<group>"; };
+		E4A63E9F2C273D3000638573 /* ImageFlask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFlask.swift; sourceTree = "<group>"; };
 		E4FD66A92C20121E009518B4 /* RightNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD66AC2C20121E009518B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD66AE2C20121E009518B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A63E852C26AF6700638573 /* UploadFlask.swift */,
+				E4A63E9F2C273D3000638573 /* ImageFlask.swift */,
 			);
 			name = Flask;
 			sourceTree = "<group>";
@@ -237,6 +248,24 @@
 				E4A63E882C26C84500638573 /* DocumentResponseModel.swift */,
 			);
 			path = Document;
+			sourceTree = "<group>";
+		};
+		E4A63E912C27180D00638573 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E922C27181C00638573 /* MainViewController.swift */,
+				E4A63E952C27196F00638573 /* MainViewModel.swift */,
+				E4A63E972C27197600638573 /* MainTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E4A63E992C271E7C00638573 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E4A63E9A2C271E8700638573 /* MainTableResponseModel.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E4FD66A02C20121E009518B4 = {
@@ -292,6 +321,7 @@
 		E4FD66C22C201234009518B4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				E4A63E992C271E7C00638573 /* Main */,
 				E4A63E872C26C83A00638573 /* Document */,
 				E4A63E5B2C2455F200638573 /* Form */,
 				E4A63E372C21788000638573 /* Ai */,
@@ -316,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				E4FD66B02C20121E009518B4 /* ViewController.swift */,
+				E4A63E912C27180D00638573 /* Main */,
 				E4A63E6F2C269E5500638573 /* Auth */,
 				E4A63E662C25469D00638573 /* CreateDocument */,
 				E4A63E412C2416D400638573 /* Form */,
@@ -437,7 +468,10 @@
 				E4FD66B12C20121E009518B4 /* ViewController.swift in Sources */,
 				E4A63E8B2C26CAE200638573 /* String + Extension.swift in Sources */,
 				E4A63E312C21740900638573 /* URL.swift in Sources */,
+				E4A63E9B2C271E8700638573 /* MainTableResponseModel.swift in Sources */,
 				E4A63E2F2C2173BA00638573 /* Network.swift in Sources */,
+				E4A63E962C27196F00638573 /* MainViewModel.swift in Sources */,
+				E4A63EA02C273D3000638573 /* ImageFlask.swift in Sources */,
 				E4A63E7F2C269F6100638573 /* RegisterViewController3.swift in Sources */,
 				E4A63E652C25469800638573 /* GetFormResponseModel.swift in Sources */,
 				E4A63E362C21782E00638573 /* AiNetwork.swift in Sources */,
@@ -450,8 +484,10 @@
 				E4FD66AD2C20121E009518B4 /* AppDelegate.swift in Sources */,
 				E4FD66AF2C20121E009518B4 /* SceneDelegate.swift in Sources */,
 				E4FD66DB2C201C70009518B4 /* JsonTodocx.swift in Sources */,
+				E4A63E982C27197600638573 /* MainTableViewCell.swift in Sources */,
 				E4A63E232C215ACB00638573 /* Color + Extension.swift in Sources */,
 				E4A63E392C21788800638573 /* AiResponseModel.swift in Sources */,
+				E4A63E932C27181C00638573 /* MainViewController.swift in Sources */,
 				E4A63E332C21764900638573 /* NetworkProvider.swift in Sources */,
 				E4A63E6A2C25486E00638573 /* FormViewModel.swift in Sources */,
 				E4A63E432C2416E400638573 /* FormViewController.swift in Sources */,

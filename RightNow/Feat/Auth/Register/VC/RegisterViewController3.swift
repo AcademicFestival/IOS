@@ -245,7 +245,7 @@ private extension RegisterViewController3 {
         }
         nextBtn.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
-            make.bottom.equalToSuperview().inset(30)
+            make.bottom.equalToSuperview().inset(self.view.frame.height / 7)
             make.height.equalTo(50)
         }
     }

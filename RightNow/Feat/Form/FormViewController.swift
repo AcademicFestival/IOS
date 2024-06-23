@@ -110,7 +110,7 @@ private extension FormViewController {
     private func updateProgress() {
         guard self.progress.progress < 1.0 else { return }
         self.progress.progress += 0.01
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             self.updateProgress()
         }
     }
