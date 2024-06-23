@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let VC = UploadViewController()
+        let VC = LoginViewController()
         let naviVC = UINavigationController(rootViewController: VC)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = naviVC

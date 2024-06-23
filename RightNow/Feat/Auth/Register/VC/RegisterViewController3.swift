@@ -284,7 +284,9 @@ extension RegisterViewController3{
         }
     }
     @objc private func nextBtnTapped() {
-//        self.navigationController?.pushViewController(, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
     }
     private func showAlert(title : String, message : String) {
         let Alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
